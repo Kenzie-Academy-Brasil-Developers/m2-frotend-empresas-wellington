@@ -7,6 +7,8 @@
     <title>Register - Kenzie Empresas</title>
     <link rel="stylesheet" href="../../styles/globalStyles.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../styles/toast.css">
+
 </head>
 <body>
     <nav>
@@ -26,10 +28,10 @@
         <img class="img-main" src="../../img/img-main.png" alt="">
         <div class="insert-container">
             <p class="ins-title">Cadastre-se</p>
-            <form>
+            <form id="register">
                 <input class="input-form" type="text" name="username" placeholder="Seu nome">
-                <input class="input-form" type="email" name="email" placeholder="Seu e-mail" required>
                 <input class="input-form" type="password" name="password" placeholder="Sua senha">
+                <input class="input-form" type="email" name="email" placeholder="Seu e-mail" required>
                 <select class="input-form"  name="professional_level" id="professional_level">
                     <option value="">Nível profissional</option>
                     <option value="estágio">Estágio</option>
@@ -43,6 +45,6 @@
             
         </div>
     </main>
-    <script src="../../scripts/register.js"></script>
+    <script type="module" src="../../scripts/register.js"></script>
 </body>
 </html> 
