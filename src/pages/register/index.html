@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Kenzie Empresas</title>
+    <link rel="stylesheet" href="../../styles/globalStyles.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar container">
+            <div class="logo">
+                <img src="../../img/Ellipse 1.png" alt="elipsis color roxo">
+                <img src="../../img/Kenzie Empresas.png" alt="nome kenzie empresas">
+            </div>
+
+            <div class="buttons">
+                <button class="btn-page1"><a href="../home/index.html">Home</a></button>
+                <button class="btn-page2"><a href="../login/index.html">Login</a></button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <img class="img-main" src="../../img/img-main.png" alt="">
+        <div class="insert-container">
+            <p class="ins-title">Cadastre-se</p>
+            <form>
+                <input class="input-form" type="text" name="username" placeholder="Seu nome">
+                <input class="input-form" type="email" name="email" placeholder="Seu e-mail" required>
+                <input class="input-form" type="password" name="password" placeholder="Sua senha">
+                <select class="input-form"  name="professional_level" id="professional_level">
+                    <option value="">Nível profissional</option>
+                    <option value="estágio">Estágio</option>
+                    <option value="júnior">Júnior</option>
+                    <option value="sênior">Sênior</option>
+                    <option value="pleno">Pleno</option>
+                </select>
+                <button class="btn-form" type="submit">Cadastrar</button>
+                <button class="btn-foot"><a href="../login/index.html">Retornar</a></button>
+            </form>       
+            
+        </div>
+    </main>
+    <script src="../../scripts/register.js"></script>
+</body>
+</html> 

@@ -1,0 +1,125 @@
+nav{
+    box-shadow: 1px 9px 5px 0px rgba(138,136,136,0.7);
+}
+
+.navbar{
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.buttons{
+    display: flex;
+    gap: 0.7rem;
+}
+
+main{
+    margin-top: 3rem;
+}
+
+.home-main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeForm{
+    width: 34.375rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--gray-700);
+}
+
+.home-select{
+    width: 100%;
+    height: 3.25rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--brand-100);
+    color: var(--white-100);
+    font-weight: var(--font-w-2);
+    font-size: var(--font-size-6);
+}
+
+.home-list {
+    height: 80vh;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding-top: 1.4rem;
+    padding-left: 2rem;
+    overflow-x: auto;
+}
+
+.comp-card{
+    width: 30.57rem;
+    height:8.438rem;
+    background-color: var(--white-100);
+    border-bottom: 0.07rem solid var(--brand-100);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 13px 25px;
+
+}
+
+.comp-name{
+    font-size: var(--font-size-6);
+    font-weight: var(--font-w-1);
+}
+
+.comp-desc{
+    width: 8rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.comp-hour{
+    font-size: var(--font-size-8);
+    font-weight: var(--font-w-2);
+}
+
+.comp-setor{
+    width: max-content;
+    border: 1px solid var(--brand-100);
+    border-radius: 50px;
+    padding: 6px 21px 6px 21px;
+    color: var(--brand-100);
+}
+
+.btn-page1{
+    width: 8.875rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 1px solid var(--brand-100);
+    cursor: pointer;
+}
+.btn-page1 >a {
+    text-decoration: none;
+    color: var(--brand-100);
+    font-weight: var(--font-w-1);
+}
+
+.btn-page2{
+    width: 8.875rem;
+    height: 3rem;
+    background-color: var(--brand-100);
+    border: 1px solid var(--brand-100);
+    cursor: pointer;
+}
+.btn-page2 >a {
+    text-decoration: none;
+    color: var(--gray-800);
+    font-weight: var(--font-w-1);
+}
