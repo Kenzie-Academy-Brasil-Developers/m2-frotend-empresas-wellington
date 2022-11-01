@@ -1,0 +1,123 @@
+nav{
+    box-shadow: 1px 9px 5px 0px rgba(138,136,136,0.7);
+}
+
+.navbar{
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.buttons{
+    display: flex;
+    gap: 0.7rem;
+}
+
+.btn-page1{
+    width: 8.875rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 1px solid var(--brand-100);
+    cursor: pointer;
+    color: var(--brand-100);
+    font-weight: var(--font-w-1);
+}
+
+.header{
+    margin-top: 1.5rem;
+    border: 1px solid var(--gray-500);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.user-id{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.name{
+    font-size: var(--font-size-4);
+    font-weight: var(--font-w-1);
+}
+.user-desc{
+    display: flex;
+    gap: 10rem;
+}
+
+#edit{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--brand-100);
+}
+
+.notContrated{
+    margin-top: 2.6rem;
+    height: 29rem;
+    border: 1px solid var(--gray-500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert{
+    font-size: var(--font-size-1);
+}
+
+.contrated{
+    margin-top: 2.6rem;
+    height: 29rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--gray-700);
+}
+
+.contrated-header{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    gap: 1rem;
+    background-color: var(--brand-100);
+    color: var(--gray-800);
+    font-size: var(--font-size-4);
+    font-weight: var(--font-w-1);
+    justify-content: center;
+    align-items: center;
+}
+
+.friend-list{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.card-freind{
+    width: 30%;
+    height: 6rem;
+    background-color: var(--gray-800);
+    border: 1px solid var(--brand-100);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.fr-name{
+    font-size: var(--font-size-7);
+    font-weight: var(--font-w-1);
+}
+
