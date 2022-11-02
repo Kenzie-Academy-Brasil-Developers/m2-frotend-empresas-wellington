@@ -1,4 +1,3 @@
-
 import toastAlert from "./toast.js"
 
 const baseurl = 'http://localhost:6278/'
@@ -106,6 +105,8 @@ async function validateUser(token){
         
         const response =await request.json()
         if(response.is_admin){
+            localStorage.setItem('tokenAdmin', JSON.stringify(response))
+
             window.location.replace("../admDash/index.html")
         } else {
             window.location.replace("../userDash/index.html")
