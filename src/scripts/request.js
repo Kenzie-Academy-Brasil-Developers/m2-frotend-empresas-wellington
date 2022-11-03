@@ -1,4 +1,5 @@
 import toastAlert from "./toast.js"
+import getUserLoged from "./localStorage.js"
 
 const baseurl = 'http://localhost:6278/'
 
@@ -118,9 +119,59 @@ async function validateUser(token){
         console.log(error)
     }
 }
+
+async function getAllDepartamens(){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}departments`,{
+            method:"GET",
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+
+        const response = await request.json()
+
+        console.log(response)
+        
+        return response
+        
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+async function getAllUsers(){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}users`,{
+            method:"GET",
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+
+        const response = await request.json()
+
+        console.log(response)
+        
+        return response
+        
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}
 export {
     getAllSectors,
     getAllCompanies,
+    getAllDepartamens,
     getNewUser,
-    loginUser
+    loginUser,
+    getAllUsers
 }

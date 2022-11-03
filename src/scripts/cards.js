@@ -46,3 +46,54 @@ const cardDepart=(depart)=>{
 
     localReder.appendChild(tagLi)
 }
+
+const cardUsers=(user)=>{
+    const localReder = document.querySelector('#list-users')
+
+    const tagLi     = document.createElement('li');
+    tagLi.classList = "card";
+
+    const tagHeader     = document.createElement('div');
+    tagHeader.classList = "card-desc";
+
+    const tagName = document.createElement('p');
+    tagName.classList = "title2";
+    tagName.innerText = user.username;
+
+    const tagDescription = document.createElement('p');
+    tagDescription.classList = "text-desc"
+    tagDescription.innerText = user.professional_level
+
+    const tagCompany = document.createElement('p')
+    tagCompany.classList = "text-desc"
+    if(user.kind_of_work !== null){
+        tagCompany.innerText = user.kind_of_work
+    } else {
+    tagCompany.innerText = ""
+    }
+    const tagActions = document.createElement('div')
+    tagActions.classList = "card-actions";
+
+    
+    const tagBtn2 = document.createElement('button')
+    tagBtn2.classList = 'btn-act'
+    tagBtn2.innerHTML = `<img src="../../img/edit-blac.png" alt="">`;
+
+    const tagBtn3 = document.createElement('button')
+    tagBtn3.classList = 'btn-act'
+    tagBtn3.innerHTML = `<img src="../../img/trashbox.png" alt="">`;
+
+    tagHeader.append(tagName, tagDescription, tagCompany)
+
+    tagActions.append(tagBtn2, tagBtn3)
+
+    tagLi.append(tagHeader, tagActions)
+
+    localReder.appendChild(tagLi)
+}
+
+
+export {
+    cardDepart,
+    cardUsers
+}
