@@ -1,5 +1,5 @@
 import { renderDepartments, renderUsers } from "./admdash.js"
-import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser } from "./request.js"
+import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser, updateUser } from "./request.js"
 
 const createNewdepart = async () =>{
     const companies = await getAllCompanies()
@@ -94,7 +94,7 @@ const updateCompForm = async (depart) => {
     const tagBut = document.createElement('button')
     tagBut.classList = 'btn-form'
     tagBut.type = 'submit'
-    tagBut.innerText = "atualizar"
+    tagBut.innerText = "Atualizar"
 
     form.append(tagTilte, tagDescription, tagBut)
 
@@ -168,9 +168,96 @@ const deleteUserForm = async (user) =>{
 
     return tagDiv
 }
+
+const updateUserForm = async (user) => {
+    const form = document.createElement('form');
+    form.id = "edit";
+
+    const tagTilte = document.createElement('h2');
+    tagTilte.classList = 'title1';
+    tagTilte.innerText = 'Editar Usuário';
+
+    const tagKind = document.createElement("select");
+    tagKind.classList = 'input-form';
+    tagKind.name = "kind_of_work";
+
+    const tagOptK = document.createElement('option');
+    tagOptK.value = "";
+    tagOptK.innerText = "Selecionar modalidade de trabalho";
+
+    const tagOptK1 = document.createElement('option');
+    tagOptK1.value = "presencial";
+    tagOptK1.innerText = "Presencial";
+
+    const tagOptK2 = document.createElement('option');
+    tagOptK2.value = "hibrido";
+    tagOptK2.innerText = "Hibrido";
+
+    const tagOptK3 = document.createElement('option');
+    tagOptK3.value = "home office";
+    tagOptK3.innerText = "Home Office";
+
+    tagKind.append(tagOptK, tagOptK1, tagOptK2, tagOptK3)
+    
+    const tagSelect = document.createElement("select")
+    tagSelect.classList = 'input-form'
+    tagSelect.name = "professional_level"
+
+    const tagOptPl = document.createElement('option');
+    tagOptPl.value = "";
+    tagOptPl.innerText = "Selecionar nível profissional";
+
+    const tagOptPl1 = document.createElement('option');
+    tagOptPl1.value = "estágio";
+    tagOptPl1.innerText = "Estágio";
+
+    const tagOptPl2 = document.createElement('option');
+    tagOptPl2.value = "júnior";
+    tagOptPl2.innerText = "Júnior";
+    
+    const tagOptPl3 = document.createElement('option');
+    tagOptPl3.value = "sênior";
+    tagOptPl3.innerText = "Sênior";
+    
+    const tagOptPl4 = document.createElement('option');
+    tagOptPl4.value = "pleno";
+    tagOptPl4.innerText = "Pleno";
+
+    tagSelect.append(tagOptPl, tagOptPl1, tagOptPl2, tagOptPl3, tagOptPl4)
+
+    const tagBut = document.createElement('button')
+    tagBut.classList = 'btn-form'
+    tagBut.type = 'submit'
+    tagBut.innerText = "Atualizar"
+
+    form.append(tagTilte, tagKind, tagSelect, tagBut)
+
+    form.addEventListener('submit', async (evt)=>{
+        evt.preventDefault()
+
+        const inputs = [...evt.target]
+
+        const newOpt = {}
+
+        inputs.forEach(({name, value})=>{
+            if(name){
+                newOpt[name] = value
+            }
+        })
+
+        
+        await updateUser(newOpt, user.uuid)
+        await renderUsers()
+        
+    })
+
+    return form
+
+}
 export {
     createNewdepart,
     updateCompForm,
     deleteDepForm,
-    deleteUserForm
+    deleteUserForm,
+    updateUserForm    
 }

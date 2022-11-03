@@ -256,6 +256,28 @@ async function deleteUser(id){
     } 
 }
 
+async function updateUser(body, id){
+    const token = getUserLoged();
+    try {
+        const request = await fetch(`${baseurl}admin/update_user/${id}`,{
+            method:"PATCH",
+            headers:{
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+            body: JSON.stringify(body)
+        })
+        
+        if(request.ok){
+            toastAlert('sucess!', "Usuário atualizado com sucesso")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }
+    } catch (error) {
+        toastAlert('erro', "Algo errado! Tente novamete")
+    }
+}
+
 export {
     getAllSectors,
     getAllCompanies,
@@ -266,5 +288,6 @@ export {
     createDept,
     updateDepart,
     deleteDepart,
-    deleteUser
+    deleteUser,
+    updateUser
 }
