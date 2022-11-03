@@ -75,5 +75,6 @@ async function openNewDept(){
 openNewDept()
 
 export {
-    renderDepartments
+    renderDepartments,
+    renderUsers
 }

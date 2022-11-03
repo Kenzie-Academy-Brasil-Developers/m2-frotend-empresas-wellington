@@ -1,5 +1,5 @@
 import { openModalDelete, openModalForm } from "./modal.js";
-import { updateCompForm, deleteDepForm } from "./forms.js";
+import { updateCompForm, deleteDepForm, deleteUserForm } from "./forms.js";
 
 const cardDepart=(depart)=>{
     const localReder = document.querySelector('#dep')
@@ -95,6 +95,11 @@ const cardUsers=(user)=>{
     const tagBtn3 = document.createElement('button')
     tagBtn3.classList = 'btn-act'
     tagBtn3.innerHTML = `<img src="../../img/trashbox.png" alt="">`;
+
+    tagBtn3.addEventListener('click', async (evt)=>{
+        const forDel =await deleteUserForm(user)
+        openModalDelete(forDel)
+    })
 
     tagHeader.append(tagName, tagDescription, tagCompany)
 

@@ -1,5 +1,5 @@
-import { renderDepartments } from "./admdash.js"
-import { createDept, getAllCompanies, updateDepart, deleteDepart } from "./request.js"
+import { renderDepartments, renderUsers } from "./admdash.js"
+import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser } from "./request.js"
 
 const createNewdepart = async () =>{
     const companies = await getAllCompanies()
@@ -131,13 +131,13 @@ const deleteDepForm = async (depart) =>{
 
     const btnConfirm = document.createElement('button')
     btnConfirm.classList = 'btnDelete'
-    btnConfirm.innerText = "Confirmar"
+    btnConfirm.innerText = "Deletar"
 
     btnConfirm.addEventListener('click',async (evnt)=>{
         evnt.preventDefault()
 
         await deleteDepart(depart.uuid)
-        await renderDepartments()
+        await renderUsers()
     })
 
     tagDiv.append(title, btnConfirm)
@@ -160,8 +160,8 @@ const deleteUserForm = async (user) =>{
     btnConfirm.addEventListener('click',async (evnt)=>{
         evnt.preventDefault()
 
-        await deleteDepart(user.uuid)
-        await renderDepartments()
+        await deleteUser(user.uuid)
+        await renderUsers()
     })
 
     tagDiv.append(title, btnConfirm)
@@ -171,5 +171,6 @@ const deleteUserForm = async (user) =>{
 export {
     createNewdepart,
     updateCompForm,
-    deleteDepForm
+    deleteDepForm,
+    deleteUserForm
 }

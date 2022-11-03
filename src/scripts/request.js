@@ -234,6 +234,27 @@ async function deleteDepart(id){
     }
 }
 
+async function deleteUser(id){
+    const token = getUserLoged();
+    try {
+        const request = await fetch(`${baseurl}admin/delete_user/${id}`,{
+            method:"DELETE",
+            headers:{
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+           
+        })
+        
+        if(request.status == 204){
+            toastAlert('sucess!', "Usuário excluido com sucesso")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }
+    } catch (error) {
+        toastAlert('erro', "Algo errado! Tente novamete")
+    } 
+}
 
 export {
     getAllSectors,
@@ -244,5 +265,6 @@ export {
     getAllUsers,
     createDept,
     updateDepart,
-    deleteDepart
+    deleteDepart,
+    deleteUser
 }
