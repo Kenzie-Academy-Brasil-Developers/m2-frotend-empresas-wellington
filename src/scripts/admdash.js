@@ -1,6 +1,7 @@
 import { cardDepart, cardUsers } from "./cards.js"
-import { getAllDepartamens, getAllUsers } from "./request.js"
-
+import { createNewdepart } from "./forms.js"
+import { getAllCompanies, getAllDepartamens, getAllUsers } from "./request.js"
+import {openModalForm} from "./modal.js"
 
 function validAdminUser(){
     const admtoken = JSON.parse(localStorage.getItem('tokenAdmin'))
@@ -13,6 +14,22 @@ function validAdminUser(){
 }
 
 validAdminUser()
+
+async function renderCompInSelect(){
+    const localReder = document.querySelector("#compt")
+
+    const companies = await getAllCompanies()
+
+    companies.forEach((comp)=>{
+        localReder.insertAdjacentHTML("beforeend",
+        `
+        <option value="${comp.uuid}">${comp.name}</option>
+        `)
+    })
+
+}
+
+renderCompInSelect()
 
 async function renderDepartments(){
     const localReder = document.querySelector('#dep');
@@ -44,3 +61,19 @@ async function renderUsers(){
 }
 
 renderUsers()
+
+async function openNewDept(){
+    const openbtn = document.querySelector(".new-depart")
+
+    openbtn.addEventListener('click',async (e)=>{
+        e.preventDefault()
+        const newdptForm =await createNewdepart()
+        openModalForm(newdptForm)
+    })
+}
+
+openNewDept()
+
+export {
+    renderDepartments
+}

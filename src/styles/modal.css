@@ -1,0 +1,53 @@
+.background{
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modalCont{
+    background-color:var(--gray-800);
+    width: 30rem;
+    position: relative;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.modalDelete{
+    background-color:var(--gray-800);
+    width: 45rem;
+    position: relative;
+    border-radius: 8px;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.modalClose{
+    padding: 10px 15px;
+    font-size: 20px;
+    border: none;
+    color: var(--gray-500);
+    background:none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.divDelete{
+    width: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    text-align: center;
+}

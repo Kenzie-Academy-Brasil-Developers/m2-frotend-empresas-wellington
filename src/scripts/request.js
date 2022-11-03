@@ -167,11 +167,82 @@ async function getAllUsers(){
     }
 
 }
+
+async function createDept(body){
+    const token = getUserLoged();
+    try {
+        const request = await fetch(`${baseurl}departments`,{
+            method:"POST",
+            headers:{
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+            body: JSON.stringify(body)
+        })
+        
+        if(request.ok){
+            toastAlert('sucess!', "Departamento cadastrado com sucesso")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }
+    } catch (error) {
+        toastAlert('erro', "Algo errado! Tente novamete")
+    }
+}
+
+async function updateDepart(body, id){
+    const token = getUserLoged();
+    try {
+        const request = await fetch(`${baseurl}departments/${id}`,{
+            method:"PATCH",
+            headers:{
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+            body: JSON.stringify(body)
+        })
+        
+        if(request.ok){
+            toastAlert('sucess!', "Departamento atualizado com sucesso")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }
+    } catch (error) {
+        toastAlert('erro', "Algo errado! Tente novamete")
+    }
+}
+
+async function deleteDepart(id){
+    const token = getUserLoged();
+    try {
+        const request = await fetch(`${baseurl}departments/${id}`,{
+            method:"DELETE",
+            headers:{
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+           
+        })
+        
+        if(request.status == 204){
+            toastAlert('sucess!', "Departamento excluido com sucesso")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }
+    } catch (error) {
+        toastAlert('erro', "Algo errado! Tente novamete")
+    }
+}
+
+
 export {
     getAllSectors,
     getAllCompanies,
     getAllDepartamens,
     getNewUser,
     loginUser,
-    getAllUsers
+    getAllUsers,
+    createDept,
+    updateDepart,
+    deleteDepart
 }
