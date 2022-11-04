@@ -117,7 +117,7 @@ const cardUsers=(user)=>{
     localReder.appendChild(tagLi)
 }
 
-const cardEmployee =(user)=>{
+const cardEmployee =(user, depart)=>{
     const localReder = document.querySelector('#list-modal')
 
     const tagLi     = document.createElement('li');
@@ -165,9 +165,25 @@ const cardEmployee =(user)=>{
     localReder.appendChild(tagLi)
 } 
 
+const cardAlert=()=>{
+    const localReder = document.querySelector('#list-modal')
+    localReder.innerHTML = ""
+    const tagLi     = document.createElement('li');
+    tagLi.classList = "card";
+
+    const tagtext = document.createElement('h1')
+    tagtext.classList = 'title1'
+    tagtext.innerText = "Sem funcionarios"
+
+    tagLi.appendChild(tagtext)
+
+    localReder.appendChild(tagLi)
+}
+
 
 export {
     cardDepart,
     cardUsers,
-    cardEmployee
+    cardEmployee,
+    cardAlert
 }

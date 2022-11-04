@@ -1,5 +1,5 @@
 import { renderDepartments, renderUsers } from "./admdash.js"
-import { cardEmployee } from "./cards.js"
+import { cardAlert, cardEmployee } from "./cards.js"
 import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser, updateUser, getUsersNotWork, contractEmployee, getAllUsers } from "./request.js"
 
 const createNewdepart = async () =>{
@@ -321,41 +321,35 @@ const magangerDepForm = async (depart) =>{
             }
         })
 
-        console.log(usercont)
         await contractEmployee(usercont)
+        tagList.innerHTML = ""
         await renderEmployee(depart)
         
     })
     
     const tagList = document.createElement('ul')
     tagList.id = 'list-modal'
-
-    renderEmployee(depart)
-
+   
     tagDesc.append(tagDepDesc, tagCompany)
 
     tagHeader.append(tagDesc, tagForm)
 
     tagMain.append(tagTilte, tagHeader, tagList)
 
+    renderEmployee(depart)
+
     return tagMain
 }
 
 async function renderEmployee(depart){
-    const localReder = document.querySelector('#list-modal')
     const allusers = await getAllUsers()
-
     const employed = filtredEmployes(allusers, depart.uuid)
 
-    if(employed === []){
-        localReder.insertAdjacentHTML("beforeend",
-        `
-        <li><p class="title1">Nenhum funcionario contratado</p></li>
-        `
-        )
+    if(employed.length === 0){
+       cardAlert()
     } else {
         employed.forEach((elem)=>{
-            cardEmployee(elem)
+            cardEmployee(elem, depart)
         })
     }
 }

@@ -132,12 +132,8 @@ async function getAllDepartamens(){
         })
 
         const response = await request.json()
-
-        console.log(response)
         
         return response
-        
-
     } catch (error) {
         console.log(error)
     }
@@ -158,12 +154,9 @@ async function getAllUsers(){
         const response = await request.json()
       
         return response
-        
-
     } catch (error) {
         console.log(error)
     }
-
 }
 
 async function createDept(body){
