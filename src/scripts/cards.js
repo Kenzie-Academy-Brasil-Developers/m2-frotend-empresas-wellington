@@ -165,7 +165,7 @@ const cardEmployee =(user, depart)=>{
     localReder.appendChild(tagLi)
 } 
 
-const cardAlert=()=>{
+const cardAlert=(mensage)=>{
     const localReder = document.querySelector('#list-modal')
     localReder.innerHTML = ""
     const tagLi     = document.createElement('li');
@@ -173,7 +173,22 @@ const cardAlert=()=>{
 
     const tagtext = document.createElement('h1')
     tagtext.classList = 'title1'
-    tagtext.innerText = "Sem funcionarios"
+    tagtext.innerText = mensage
+
+    tagLi.appendChild(tagtext)
+
+    localReder.appendChild(tagLi)
+}
+
+const cardAlertSector=(mensage)=>{
+    const localReder = document.querySelector('#dep')
+    localReder.innerHTML = ""
+    const tagLi     = document.createElement('li');
+    tagLi.classList = "card";
+
+    const tagtext = document.createElement('h1')
+    tagtext.classList = 'title1'
+    tagtext.innerText = mensage
 
     tagLi.appendChild(tagtext)
 
@@ -181,9 +196,12 @@ const cardAlert=()=>{
 }
 
 
+
+
 export {
     cardDepart,
     cardUsers,
     cardEmployee,
-    cardAlert
+    cardAlert,
+    cardAlertSector
 }

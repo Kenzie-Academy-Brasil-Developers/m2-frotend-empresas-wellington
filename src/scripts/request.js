@@ -12,11 +12,7 @@ async function getAllSectors (){
         }
       })
 
-      
-      
       const response =await request.json()
-      
-      localStorage.setItem('@kenzie-empresas:sectors', JSON.stringify(response))
 
       return response
     } catch (error) {
@@ -350,10 +346,31 @@ async function getCompaniesBySector(sector){
     }
 }
 
+async function getDeptByCompany(id){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}departments/${id}`,{
+            method:"GET",
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+
+        const response = await request.json()
+        
+        return response
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
 export {
     getAllSectors,
     getAllCompanies,
     getAllDepartamens,
+    getDeptByCompany,
     getCompaniesBySector,
     getNewUser,
     loginUser,

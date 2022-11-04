@@ -1,6 +1,6 @@
-import { cardDepart, cardUsers } from "./cards.js"
+import { cardAlert, cardAlertSector, cardDepart, cardUsers } from "./cards.js"
 import { createNewdepart } from "./forms.js"
-import { getAllCompanies, getAllDepartamens, getAllUsers } from "./request.js"
+import { getAllCompanies, getAllDepartamens, getAllUsers, getDeptByCompany } from "./request.js"
 import {openModalForm} from "./modal.js"
 
 function validAdminUser(){
@@ -17,7 +17,7 @@ validAdminUser()
 
 async function renderCompInSelect(){
     const localReder = document.querySelector("#compt")
-
+ 
     const companies = await getAllCompanies()
 
     companies.forEach((comp)=>{
@@ -25,6 +25,17 @@ async function renderCompInSelect(){
         `
         <option value="${comp.uuid}">${comp.name}</option>
         `)
+    })
+
+    localReder.addEventListener('click', async (e)=>{
+        e.preventDefault()
+
+        const company = localReder.value
+        
+        if(companies != "Selecionar Empresa"){ 
+            await renderDeparbycomp(company)
+        }
+        
     })
 
 }
@@ -45,6 +56,21 @@ async function renderDepartments(){
 }
 
 renderDepartments()
+
+async function renderDeparbycomp(id){
+    const localReder = document.querySelector('#dep')
+    localReder.innerHTML = ""
+    const depart = await getDeptByCompany(id)
+
+    if(depart.length===0){
+        cardAlertSector("Nenhum departamento alocado")
+    }
+
+    depart.forEach(department => {
+        cardDepart(department)
+    });
+
+}
 
 async function renderUsers(){
     const localReder = document.querySelector('#list-users');
@@ -78,10 +104,17 @@ function logoutAdm(){
     const butLogout = document.getElementById('logout')
 
     butLogout.addEventListener('click', (evt)=>{
-        
+        evt.preventDefault()
+
+        localStorage.removeItem('@kenzie-Empresas:user')
+        localStorage.removeItem('tokenAdmin')
+
+        window.location.replace('../home/index.html')
     })
 
 }
+
+logoutAdm()
 
 export {
     renderDepartments,

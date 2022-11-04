@@ -346,7 +346,7 @@ async function renderEmployee(depart){
     const employed = filtredEmployes(allusers, depart.uuid)
 
     if(employed.length === 0){
-       cardAlert()
+       cardAlert("Sem funcionarios")
     } else {
         employed.forEach((elem)=>{
             cardEmployee(elem, depart)
