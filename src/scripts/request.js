@@ -156,9 +156,7 @@ async function getAllUsers(){
         })
 
         const response = await request.json()
-
-        console.log(response)
-        
+      
         return response
         
 
@@ -278,6 +276,70 @@ async function updateUser(body, id){
     }
 }
 
+async function getUsersNotWork(){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}admin/out_of_work`,{
+            method:"GET",
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+
+        const response = await request.json()
+      
+        return response
+        
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+async function contractEmployee(body){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}departments/hire/`, {
+            method:"PATCH",
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+            body: JSON.stringify(body)
+        })
+        if(request.ok){
+            toastAlert('sucess!', "Funcionario contratado!")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }        
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+async function dismissEmployee(id){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}departments/dismiss/${id}`, {
+            method:"PATCH",
+            headers:{
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+        })
+        if(request.ok){
+            toastAlert('sucess!', "Funcionario Demitido")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 export {
     getAllSectors,
     getAllCompanies,
@@ -289,5 +351,9 @@ export {
     updateDepart,
     deleteDepart,
     deleteUser,
-    updateUser
+    updateUser,
+    getUsersNotWork,
+    contractEmployee,
+    dismissEmployee
+
 }

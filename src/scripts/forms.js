@@ -1,5 +1,6 @@
 import { renderDepartments, renderUsers } from "./admdash.js"
-import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser, updateUser } from "./request.js"
+import { cardEmployee } from "./cards.js"
+import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser, updateUser, getUsersNotWork, contractEmployee, getAllUsers } from "./request.js"
 
 const createNewdepart = async () =>{
     const companies = await getAllCompanies()
@@ -254,10 +255,123 @@ const updateUserForm = async (user) => {
     return form
 
 }
+
+const magangerDepForm = async (depart) =>{
+    const tagMain     = document.createElement('div')
+    tagMain.classList = 'modalMain'
+
+    const tagTilte     = document.createElement('p')
+    tagTilte.classList = 'title1'
+    tagTilte.innerText = depart.name
+
+    const tagHeader     = document.createElement('div')
+    tagHeader.classList = 'modalhead';
+
+    const tagDesc     = document.createElement('div');
+    tagDesc.classList = 'div-desc'
+
+    const tagDepDesc     = document.createElement('p');
+    tagDepDesc.classList = 'title2'
+    tagDepDesc.innerText = depart.description
+
+    const tagCompany     = document.createElement('p');
+    tagCompany.classList = 'text-desc'
+    tagCompany.innerText = depart.companies.name;
+
+    const tagForm = document.createElement('form')
+    tagForm.classList = 'formModal'
+
+    const usersNotwork = await getUsersNotWork()
+
+    const tagSelect     = document.createElement('select');
+    tagSelect.classList = 'input-form'
+    tagSelect.name = 'user_uuid'
+
+    const tagOption     = document.createElement('option');
+    tagOption.innerText = 'Selecionar usuário'
+    
+    tagSelect.appendChild(tagOption)
+
+    usersNotwork.forEach((elem)=>{
+        tagSelect.insertAdjacentHTML("beforeend",
+        `
+        <option value="${elem.uuid}">${elem.username}</option>
+        `)
+    })
+
+    const tagBtn     = document.createElement('button')
+    tagBtn.classList = 'btn-conf'
+    tagBtn.type      = 'submit'
+    tagBtn.innerText = 'Contratar'
+
+    
+    
+    tagForm.append(tagSelect, tagBtn)
+
+    tagForm.addEventListener('submit', async(evt)=>{
+        evt.preventDefault()
+
+        const inputs = [...evt.target]
+
+        const usercont = {user_uuid : "",department_uuid: depart.uuid}
+
+        inputs.forEach(({name, value})=>{
+            if(name){
+                usercont[name] = value
+            }
+        })
+
+        console.log(usercont)
+        await contractEmployee(usercont)
+        await renderEmployee(depart)
+        
+    })
+    
+    const tagList = document.createElement('ul')
+    tagList.id = 'list-modal'
+
+    renderEmployee(depart)
+
+    tagDesc.append(tagDepDesc, tagCompany)
+
+    tagHeader.append(tagDesc, tagForm)
+
+    tagMain.append(tagTilte, tagHeader, tagList)
+
+    return tagMain
+}
+
+async function renderEmployee(depart){
+    const localReder = document.querySelector('#list-modal')
+    const allusers = await getAllUsers()
+
+    const employed = filtredEmployes(allusers, depart.uuid)
+
+    if(employed === []){
+        localReder.insertAdjacentHTML("beforeend",
+        `
+        <li><p class="title1">Nenhum funcionario contratado</p></li>
+        `
+        )
+    } else {
+        employed.forEach((elem)=>{
+            cardEmployee(elem)
+        })
+    }
+}
+
+function filtredEmployes(arr, id){
+    const newarr = arr.filter((elem)=>{
+        return elem.department_uuid == id
+    })
+    return newarr
+}
 export {
     createNewdepart,
     updateCompForm,
     deleteDepForm,
     deleteUserForm,
-    updateUserForm    
+    updateUserForm,
+    magangerDepForm,
+    renderEmployee    
 }

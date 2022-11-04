@@ -1,5 +1,6 @@
-import { openModalDelete, openModalForm } from "./modal.js";
-import { updateCompForm, deleteDepForm, deleteUserForm, updateUserForm } from "./forms.js";
+import { openModalDelete, openModalForm, openModalManege } from "./modal.js";
+import { updateCompForm, deleteDepForm, deleteUserForm, updateUserForm, magangerDepForm, renderEmployee } from "./forms.js";
+import { dismissEmployee } from "./request.js";
 
 const cardDepart=(depart)=>{
     const localReder = document.querySelector('#dep')
@@ -29,8 +30,9 @@ const cardDepart=(depart)=>{
     tagBtn1.classList = 'btn-act'
     tagBtn1.innerHTML = `<img src="../../img/eyed.png" alt="">`;
 
-    tagBtn1.addEventListener('click',()=>{
-        
+    tagBtn1.addEventListener('click',async ()=>{
+        const formdepart = await magangerDepForm(depart)
+        openModalManege(formdepart)
     })
 
     const tagBtn2 = document.createElement('button')
@@ -115,8 +117,57 @@ const cardUsers=(user)=>{
     localReder.appendChild(tagLi)
 }
 
+const cardEmployee =(user)=>{
+    const localReder = document.querySelector('#list-modal')
+
+    const tagLi     = document.createElement('li');
+    tagLi.classList = "cardng";
+
+    const tagHeader     = document.createElement('div');
+    tagHeader.classList = "card-desc";
+
+    const tagName = document.createElement('p');
+    tagName.classList = "title2";
+    tagName.innerText = user.username;
+
+    const tagDescription = document.createElement('p');
+    tagDescription.classList = "text-desc"
+    tagDescription.innerText = user.professional_level
+
+    const tagCompany = document.createElement('p')
+    tagCompany.classList = "text-desc"
+    if(user.kind_of_work !== null){
+        tagCompany.innerText = user.kind_of_work
+    } else {
+    tagCompany.innerText = ""
+    }
+    const tagActions = document.createElement('div')
+    tagActions.classList = "card-actions";
+
+    const tagBtn = document.createElement('button')
+    tagBtn.classList = 'btn-dem'
+    tagBtn.innerText = "Desligar";
+
+    tagBtn.addEventListener('click', async (evt)=>{
+        evt.preventDefault()
+        
+        await dismissEmployee(user.uuid)
+        await renderEmployee(depart)
+    })
+
+
+    tagHeader.append(tagName, tagDescription, tagCompany)
+
+    tagActions.append(tagBtn)
+
+    tagLi.append(tagHeader, tagActions)
+
+    localReder.appendChild(tagLi)
+} 
+
 
 export {
     cardDepart,
-    cardUsers
+    cardUsers,
+    cardEmployee
 }
