@@ -15,7 +15,7 @@ function eventLogin (){
             }
         })
 
-        console.log(body)
+        
         await loginUser(body)
     })
 

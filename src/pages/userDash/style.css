@@ -30,6 +30,10 @@ nav{
     color: var(--brand-100);
     font-weight: var(--font-w-1);
 }
+.title1{
+    font-size: var(--font-size-4);
+    font-weight: var(--font-w-1);
+}
 
 .header{
     margin-top: 1.5rem;
@@ -121,3 +125,35 @@ nav{
     font-weight: var(--font-w-1);
 }
 
+.invisible{
+    display: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.input-form{
+    height: 3.25rem;
+    padding-left: 1rem;
+    border: 1px solid var(--gray-600);
+}
+.input-desc{
+    height: 8rem;
+    padding-left: 1rem;
+    border: 1px solid var(--gray-600);
+}
+
+.input-form:focus{
+    border: 2px solid var(--gray-600);
+}
+
+.btn-form{
+    height: 3.25rem;
+    border: 1px solid var(--brand-100);
+    background-color: var(--brand-100);
+    color: var(--gray-800);
+    font-weight: var(--font-w-1);
+    cursor: pointer;
+}

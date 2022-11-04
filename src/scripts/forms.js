@@ -1,6 +1,6 @@
 import { renderDepartments, renderUsers } from "./admdash.js"
 import { cardAlert, cardEmployee } from "./cards.js"
-import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser, updateUser, getUsersNotWork, contractEmployee, getAllUsers } from "./request.js"
+import { createDept, getAllCompanies, updateDepart, deleteDepart, deleteUser, updateUser, getUsersNotWork, contractEmployee, getAllUsers} from "./request.js"
 
 const createNewdepart = async () =>{
     const companies = await getAllCompanies()
@@ -360,6 +360,7 @@ function filtredEmployes(arr, id){
     })
     return newarr
 }
+
 export {
     createNewdepart,
     updateCompForm,
@@ -367,5 +368,5 @@ export {
     deleteUserForm,
     updateUserForm,
     magangerDepForm,
-    renderEmployee    
+    renderEmployee  
 }

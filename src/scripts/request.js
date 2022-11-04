@@ -366,6 +366,87 @@ async function getDeptByCompany(id){
 
 }
 
+async function getUserInfo(){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}users/profile`, {
+            method: "GET",
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+        const response =await request.json()
+        
+        return response
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function getCompanyByUser(){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}users/departments`, {
+            method: "GET",
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+        const response =await request.json()
+        
+        return response
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function getCoworkerByuser(){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}users/departments/coworkers`, {
+            method: "GET",
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+        const response =await request.json()
+        
+        return response
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function updateUserProfile(body){
+    const token = getUserLoged()
+    try {
+        const request = await fetch(`${baseurl}users`, {
+            method: "PATCH",
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${token.token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        if(request.ok){
+            toastAlert('sucess!', "Perfil editado com sucesso")
+        } else {
+            toastAlert('erro', "Algo errado! Tente novamete")
+        }
+
+    } catch (error) {
+        console.log(error)
+        toastAlert('erro', "Algo errado! Tente novamete")
+    }
+}
+
 export {
     getAllSectors,
     getAllCompanies,
@@ -382,6 +463,9 @@ export {
     updateUser,
     getUsersNotWork,
     contractEmployee,
-    dismissEmployee
-
+    dismissEmployee,
+    getUserInfo,
+    getCompanyByUser,
+    getCoworkerByuser,
+    updateUserProfile
 }

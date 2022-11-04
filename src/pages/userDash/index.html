@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../styles/globalStyles.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../../styles/toast.css">
+    <link rel="stylesheet" href="../../styles/modal.css">    
 </head>
 <body>
     <nav>
@@ -18,41 +19,21 @@
             </div>
 
             <div class="buttons">
-                <button class="btn-page1">Logout</button>
+                <button class="btn-page1" id="logout">Logout</button>
             </div>
         </div>
     </nav>
-    <header>
-        <div class="header container">
-            <div class="user-id">
-                <p class="name">usernamme</p>
-                <div class="user-desc">
-                    <p>Email: meuemail@mail.com</p>
-                    <p>status</p>
-                    <p>home ofice</p>
-                </div>
-            </div>
-            <button id="edit">
-                <img class="img-icon" src="../../img/edit-blue.png" alt="">
-            </button>
-        </div>
+    <header id="head">
+        
     </header>
 
     <main>
-        <div class="notContrated container">
-            <h1 class="alert">Você ainda não foi contratado</h1>                         
-        </div>
-        <div class="contrated container">
-            <div class="contrated-header">
-                <p class="text-header">company name</p>
-                <p class="text-header">-</p>
-                <p class="text-header">Departament name</p>
+        <div class="contrated container invisible" id="contrated">
+            <div class="contrated-header" id ='cpn'>
+                
             </div>
-            <ul class="friend-list">
-                <li class="card-freind">
-                    <p class="fr-name">nome do colega</p>
-                    <p>status</p>
-                </li>
+            <ul class="friend-list" id="fr-list">
+                
             </ul>
     
         </div>
