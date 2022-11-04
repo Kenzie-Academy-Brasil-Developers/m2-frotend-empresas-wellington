@@ -22,3 +22,21 @@ function eventLogin (){
 }
 
 eventLogin()
+
+function openbuttons(){
+    const btnmenu = document.getElementById('menu')
+    let menumobile = document.querySelector(".mobile-menu")
+    btnmenu.addEventListener('click',(e)=>{
+        if(menumobile.classList.contains("open")){
+            menumobile.classList.remove('open')
+            document.querySelector('.icon').src = "../../img/hamburguer.png"
+        }else{
+            menumobile.classList.add('open')
+            document.querySelector('.icon').src = "../../img/exit.png"
+            
+        }
+    })
+    
+}
+
+openbuttons()

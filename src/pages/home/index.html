@@ -7,6 +7,7 @@
     <title>Kenzie Empresas</title>
     <link rel="stylesheet" href="../../styles/globalStyles.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../styles/mobile.css">
 </head>
 <body>
     <nav>
@@ -20,11 +21,19 @@
                 <button class="btn-page1"><a href="../login/index.html">Login</a></button>
                 <button class="btn-page2"><a href="../register/index.html">Cadastro</a></button>
             </div>
+            <div class="mobile-menu-icon">
+                <button id="menu"><img class="icon" src="../../img/hamburguer.png" alt=""></button>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <button class="btn-page1"><a href="../login/index.html">Login</a></button>
+            <button class="btn-page2"><a href="../register/index.html">Cadastro</a></button>
         </div>
     </nav>
+    
     <main>
         <div class="home-main container">
-            <img src="../../img/img-home.png" alt="foto de reuniao de trabalho">
+            <img class="imgmobile" id="photo"src="../../img/img-home.png" alt="foto de reuniao de trabalho">
             <div class="homeForm">
                 <form>
                     <select class="home-select" name="select-area" id="sector">

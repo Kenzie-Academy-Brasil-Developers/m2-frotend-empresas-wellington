@@ -1,0 +1,639 @@
+.mobile-menu-icon{
+    display: none;
+}
+
+.mobile-menu{
+    display: none;
+}
+
+@media screen and (max-width:400px) {
+    nav{
+        max-width: 400px;
+    }
+    .navbar{
+        max-width: 400px;
+        padding: 2rem;
+        height: 6rem;
+        justify-content:initial;
+        gap: 4rem;
+    }
+    .buttons{
+        display:none;
+    }
+    .mobile-menu-icon{
+        display: block;
+    }
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .imgmobile{
+        max-width: 1px;
+    }
+
+    .home-main{
+        display: flex ;
+        flex-direction: column;
+    }
+
+    .container{
+        max-width: 400px;
+    }
+    
+    .mobile-menu{
+        
+        flex-direction: column;
+        max-width: 100vw;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .mobile-menu button{
+        width: 90%;
+        
+    }
+    .homeForm{
+        max-width: 90%;
+        max-height: 17rem;
+        margin-left: 5%
+    }
+
+    .home-list{
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: 20rem;
+    }
+    .comp-card{
+        width: 18rem;    
+        height: 10rem;
+    }
+    .open{
+        display: flex;
+    }
+
+    .img-main{
+        width: 1px;
+    }
+    .insert-container{
+        width: 25rem;
+        position: fixed;
+        left: 0;
+        top: 250px;
+    }
+
+    main{
+        max-width: 400px;
+    }
+
+    @keyframes toastIt {
+        0%   {left: 30px; top:-100px}
+        25%  {left: 30px; top:100px}
+        50%  {left: 30px; top:100px}
+        100% {left: 30px; top:-100px}
+    }
+}
+
+@media screen and (max-width:450px) {
+    nav{
+        max-width: 450px;
+    }
+    .navbar{
+        max-width: 450px;
+        padding: 2rem;
+        height: 6rem;
+    }   
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .imgmobile{
+        max-width: 1px;
+    }
+
+    .home-main{
+        display: flex ;
+        flex-direction: column;
+    }
+
+    .container{
+        max-width: 450px;
+    }
+    
+    .mobile-menu{
+        
+        flex-direction: column;
+        max-width: 100vw;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .mobile-menu button{
+        width: 90%;
+        
+    }
+    .homeForm{
+        max-width: 90%;
+        max-height: 17rem;
+        margin-left: 5%
+    }
+
+    .home-list{
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: 20rem;
+    }
+    .comp-card{
+        width: 18rem;    
+        height: 10rem;
+    }
+    .open{
+        display: flex;
+    }
+
+    .img-main{
+        width: 1px;
+    }
+    .insert-container{
+        width: 25rem;
+        position: fixed;
+        left: 0;
+        top: 250px;
+    }
+
+    main{
+        max-width: 450px;
+    }
+
+    @keyframes toastIt {
+        0%   {left: 30px; top:-100px}
+        25%  {left: 30px; top:100px}
+        50%  {left: 30px; top:100px}
+        100% {left: 30px; top:-100px}
+    }
+    
+}
+@media screen and (max-width:500px) {
+    nav{
+        max-width: 450px;
+    }
+    .navbar{
+        max-width: 450px;
+        padding: 2rem;
+        height: 6rem;
+        justify-content:initial;
+        gap: 4rem;
+    }
+    .buttons{
+        display:none;
+    }
+    .mobile-menu-icon{
+        display: block;
+    }
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .imgmobile{
+        max-width: 1px;
+    }
+
+    .home-main{
+        display: flex ;
+        flex-direction: column;
+    }
+
+    .container{
+        max-width: 450px;
+    }
+    
+    .mobile-menu{
+        
+        flex-direction: column;
+        max-width: 100vw;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .mobile-menu button{
+        width: 90%;
+        
+    }
+    .homeForm{
+        max-width: 90%;
+        max-height: 17rem;
+        margin-left: 5%
+    }
+
+    .home-list{
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: 20rem;
+    }
+    .comp-card{
+        width: 18rem;    
+        height: 10rem;
+    }
+    .open{
+        display: flex;
+    }
+
+    .img-main{
+        width: 1px;
+    }
+    .insert-container{
+        width: 28rem;
+        position: fixed;
+        left: 0;
+        top: 250px;
+    }
+
+    main{
+        max-width: 450px;
+    }
+
+    @keyframes toastIt {
+        0%   {left: 30px; top:-100px}
+        25%  {left: 30px; top:100px}
+        50%  {left: 30px; top:100px}
+        100% {left: 30px; top:-100px}
+    }
+}
+
+@media screen and (max-width:600px) {
+    nav{
+        max-width: 600px;
+    }
+    .navbar{
+        max-width: 600px;
+        padding: 2rem;
+        height: 6rem;
+        justify-content:initial;
+        gap: 4rem;
+    }
+    .buttons{
+        display:none;
+    }
+    .mobile-menu-icon{
+        display: block;
+    }
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .imgmobile{
+        max-width: 1px;
+    }
+
+    .home-main{
+        display: flex ;
+        flex-direction: column;
+    }
+
+    .container{
+        max-width: 500px;
+    }
+    
+    .mobile-menu{
+        
+        flex-direction: column;
+        max-width: 100vw;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .mobile-menu button{
+        width: 90%;
+        
+    }
+    .homeForm{
+        max-width: 90%;
+        max-height: 17rem;
+        margin-left: 5%
+    }
+
+    .home-list{
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: 20rem;
+    }
+    .comp-card{
+        width: 18rem;    
+        height: 10rem;
+    }
+    .open{
+        display: flex;
+    }
+
+    .img-main{
+        width: 1px;
+    }
+    .insert-container{
+        width: 32rem;
+        position: fixed;
+        left: 0;
+        top: 250px;
+    }
+
+    main{
+        max-width: 600px;
+    }
+
+    @keyframes toastIt {
+        0%   {left: 30px; top:-100px}
+        25%  {left: 30px; top:100px}
+        50%  {left: 30px; top:100px}
+        100% {left: 30px; top:-100px}
+    }
+}
+
+
+@media screen and (max-width:700px) {
+    nav{
+        max-width: 600px;
+    }
+    .navbar{
+        max-width: 600px;
+        padding: 2rem;
+        height: 6rem;
+        justify-content:initial;
+        gap: 4rem;
+    }
+    .buttons{
+        display:none;
+    }
+    .mobile-menu-icon{
+        display: block;
+    }
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .imgmobile{
+        max-width: 1px;
+    }
+
+    .home-main{
+        display: flex ;
+        flex-direction: column;
+    }
+
+    .container{
+        max-width: 500px;
+    }
+    
+    .mobile-menu{
+        
+        flex-direction: column;
+        max-width: 100vw;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .mobile-menu button{
+        width: 90%;
+        
+    }
+    .homeForm{
+        max-width: 90%;
+        max-height: 17rem;
+        margin-left: 5%
+    }
+
+    .home-list{
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: 20rem;
+    }
+    .comp-card{
+        width: 18rem;    
+        height: 10rem;
+    }
+    .open{
+        display: flex;
+    }
+
+    .img-main{
+        width: 1px;
+    }
+    .insert-container{
+        width: 32rem;
+        position: fixed;
+        left: 0;
+        top: 250px;
+    }
+
+    main{
+        max-width: 600px;
+    }
+
+    @keyframes toastIt {
+        0%   {left: 30px; top:-100px}
+        25%  {left: 30px; top:100px}
+        50%  {left: 30px; top:100px}
+        100% {left: 30px; top:-100px}
+    }
+}
+
+@media screen and (max-width:800px) {
+    nav{
+        max-width: 600px;
+    }
+    .navbar{
+        max-width: 600px;
+        padding: 2rem;
+        height: 6rem;
+        justify-content:initial;
+        gap: 4rem;
+    }
+    .buttons{
+        display:none;
+    }
+    .mobile-menu-icon{
+        display: block;
+    }
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .imgmobile{
+        max-width: 1px;
+    }
+
+    .home-main{
+        display: flex ;
+        flex-direction: column;
+    }
+
+    .container{
+        max-width: 500px;
+    }
+    
+    .mobile-menu{
+        
+        flex-direction: column;
+        max-width: 100vw;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .mobile-menu button{
+        width: 90%;
+        
+    }
+    .homeForm{
+        max-width: 90%;
+        max-height: 17rem;
+        margin-left: 5%
+    }
+
+    .home-list{
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: 20rem;
+    }
+    .comp-card{
+        width: 18rem;    
+        height: 10rem;
+    }
+    .open{
+        display: flex;
+    }
+
+    .img-main{
+        width: 1px;
+    }
+    .insert-container{
+        width: 32rem;
+        position: fixed;
+        left: 0;
+        top: 250px;
+    }
+
+    main{
+        max-width: 95vw;
+    }
+
+    @keyframes toastIt {
+        0%   {left: 30px; top:-100px}
+        25%  {left: 30px; top:100px}
+        50%  {left: 30px; top:100px}
+        100% {left: 30px; top:-100px}
+    }
+}
+
+@media screen and (max-width:900px) {
+    nav{
+        max-width: 100vw;
+    }
+    .navbar{
+        max-width: 90%;
+        padding: 2rem;
+        height: 6rem;
+        justify-content:center;
+        gap: 4rem;
+    }
+    .buttons{
+        display:none;
+    }
+    .mobile-menu-icon{
+        display: block;
+    }
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .imgmobile{
+        max-width: 1px;
+    }
+
+    .home-main{
+        display: flex ;
+        flex-direction: column;
+    }
+
+    .container{
+        max-width: 800px;
+    }
+    
+    .mobile-menu{
+        
+        flex-direction: column;
+        max-width: 90%;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .mobile-menu button{
+        width: 90%;
+        
+    }
+    .homeForm{
+        max-width: 90%;
+        max-height: 17rem;
+        margin-left: 5%
+    }
+
+    .home-list{
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: 20rem;
+    }
+    .comp-card{
+        width: 18rem;    
+        height: 10rem;
+    }
+    .open{
+        display: flex;
+    }
+
+    .img-main{
+        width: 1px;
+    }
+    .insert-container{
+        width: 32rem;
+        position: fixed;
+        left: 25%;
+        top: 250px;
+    }
+
+    main{
+        max-width: 880px;
+    }
+
+    @keyframes toastIt {
+        0%   {left: 30px; top:-100px}
+        25%  {left: 30px; top:100px}
+        50%  {left: 30px; top:100px}
+        100% {left: 30px; top:-100px}
+    }
+}
+
+
