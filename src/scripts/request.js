@@ -332,11 +332,29 @@ async function dismissEmployee(id){
     }
 }
 
+async function getCompaniesBySector(sector){
+    try {
+        const request = await fetch(`${baseurl}companies/${sector}`, {
+            method: "GET",
+            headers:{
+                "Content-Type":"application/json",
+                 Authorization: "bearer null",
+            },
+        })
+
+        const response =await request.json()
+
+        return response
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export {
     getAllSectors,
     getAllCompanies,
     getAllDepartamens,
+    getCompaniesBySector,
     getNewUser,
     loginUser,
     getAllUsers,

@@ -1,4 +1,4 @@
-import { getAllCompanies, getAllSectors } from "./request.js";
+import { getAllCompanies, getAllSectors, getCompaniesBySector } from "./request.js";
 
 async function renderSectors (){
     const localRender = document.querySelector("#sector")
@@ -8,12 +8,20 @@ async function renderSectors (){
     sectors.forEach(element => {
     localRender.insertAdjacentHTML("beforeend",
     `
-    <option class="input-option" value="${element.description}" id="${element.uuid}">${element.description}</option>
+    <option class="input-option" value="${element.description}">${element.description}</option>
     `
 
 
     )        
     });
+    localRender.addEventListener('click',async (evt)=>{
+        evt.preventDefault()
+
+        const sector = localRender.value
+        console.log(sector)
+        await filterCompanies(sector)
+        
+    })
 }
 
 renderSectors()
@@ -40,42 +48,31 @@ async function renderCompanies (){
     
 }   
 
-const filterCompanies =async () =>{
-    const localfilters = document.querySelectorAll(".input-option")
+const filterCompanies =async (sector) =>{
     const localRender  = document.querySelector('#companies')
+    localRender.innerHTML = ""
+    if(sector ==="Selecionar Setor"){
+        
+        renderCompanies()
+    }
+  
 
-    console.log(localfilters)
+    const filter = await getCompaniesBySector(sector)
 
-    localfilters.forEach(item=>{
-        item.addEventListener('click', async ()=>{
-            localRender.innerHTML = "";
-
-            const sector = item.innerText
-
-            console.log(sector)
-
-            if(sector ==="Selecionar Setor"){
-                renderCompanies()
-            } 
-
-            const companiesFitred = await filterComp(sector)
-
-            companiesFitred.forEach(element=>{
-                localRender.insertAdjacentHTML("beforeend",
-                `
-                <li class="comp-card">
-                    <p class="comp-name">${element.name}</p>
-                    <div class="comp-desc">
-                        <p class="comp-hour">${element.opening_hours}</p>
-                        <p class="comp-setor">${element.sectors.description}</p>
-                    </div>                        
-                </li>
-                `)
-            })
-        })
+   
+    filter.forEach(element=>{
+        
+        localRender.insertAdjacentHTML("beforeend",
+            `
+            <li class="comp-card">
+                <p class="comp-name">${element.name}</p>
+                <div class="comp-desc">
+                   <p class="comp-hour">${element.opening_hours}</p>
+                   <p class="comp-setor">${element.sectors.description}</p>
+               </div>                        
+          </li>
+       `)
     })
-    
-
 }
 
 async function filterComp(sct){
@@ -88,7 +85,7 @@ async function filterComp(sct){
 
 renderCompanies()
 
-filterCompanies()
+
 
 
 

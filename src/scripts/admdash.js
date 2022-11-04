@@ -74,6 +74,15 @@ async function openNewDept(){
 
 openNewDept()
 
+function logoutAdm(){
+    const butLogout = document.getElementById('logout')
+
+    butLogout.addEventListener('click', (evt)=>{
+        
+    })
+
+}
+
 export {
     renderDepartments,
     renderUsers
