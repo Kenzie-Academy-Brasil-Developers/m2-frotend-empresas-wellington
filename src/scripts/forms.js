@@ -57,6 +57,7 @@ const createNewdepart = async () =>{
     form.addEventListener('submit', async (evt)=>{
         evt.preventDefault()
 
+
         const inputs = [...evt.target]
 
         const newDept = {}
@@ -70,6 +71,7 @@ const createNewdepart = async () =>{
         
         await createDept(newDept)
         await renderDepartments()
+        evt.path[2].remove()
         
     })
     
@@ -115,6 +117,7 @@ const updateCompForm = async (depart) => {
         
         await updateDepart(newDesc, depart.uuid)
         await renderDepartments()
+        evt.path[2].remove()
         
     })
 
@@ -138,7 +141,9 @@ const deleteDepForm = async (depart) =>{
         evnt.preventDefault()
 
         await deleteDepart(depart.uuid)
-        await renderUsers()
+        await renderDepartments()
+        evnt.path[3].remove()
+        
     })
 
     tagDiv.append(title, btnConfirm)
@@ -163,6 +168,7 @@ const deleteUserForm = async (user) =>{
 
         await deleteUser(user.uuid)
         await renderUsers()
+        evnt.path[3].remove()
     })
 
     tagDiv.append(title, btnConfirm)
@@ -249,6 +255,7 @@ const updateUserForm = async (user) => {
         
         await updateUser(newOpt, user.uuid)
         await renderUsers()
+        evt.path[2].remove()
         
     })
 

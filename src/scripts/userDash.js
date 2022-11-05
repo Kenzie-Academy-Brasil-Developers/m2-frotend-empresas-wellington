@@ -85,7 +85,10 @@ async function renderUser(){
       const containerMain = document.getElementById('contrated')
       const company =  await getCompanyByUser()
       const coworkers = await getCoworkerByuser()
-      containerMain.classList.remove('invisible')
+      if(containerMain.classList.contains('invisible')){
+        containerMain.classList.remove('invisible')
+      }
+      
       localRederDepart.insertAdjacentHTML(
         'beforeend',
         `
@@ -211,11 +214,12 @@ async function openModalEdit(){
                 editUser[name] = value
             }
         })
-        console.log(editUser)
+        evt.path[2].remove()
         await updateUserProfile(editUser)
         header.innerHTML = ""
         main.innerHTML = ""
         await renderUser()
+        
     })
 
     container.appendChild(modalBtn)
