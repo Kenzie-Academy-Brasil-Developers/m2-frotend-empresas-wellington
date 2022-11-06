@@ -27,8 +27,6 @@ logout()
 
 async function renderUser(){
     const localReder       = document.querySelector('#head')
-    const localRederDepart = document.querySelector('#cpn')
-    const listCoworkes     = document.querySelector('#fr-list')
 
     const user = await getUserInfo()
     
@@ -69,9 +67,24 @@ async function renderUser(){
 
     tagbtm.addEventListener('click', async (evt)=>{
         evt.preventDefault()
-        openModalEdit()
+        await openModalEdit()
     })
-  
+
+    tagDesc.append(tagEmail, tagProf, tagKind)
+
+    tagUserid.append(tagName, tagDesc)
+
+    tagmain.append(tagUserid, tagbtm)
+
+    localReder.appendChild(tagmain)
+
+}
+
+async function renderCompany(){
+    const user = await getUserInfo()
+    const localRederDepart = document.querySelector('#cpn')
+    const listCoworkes     = document.querySelector('#fr-list')
+
     if(user.department_uuid == null){
         const main = document.querySelector('main')
         main.insertAdjacentHTML("beforeend",
@@ -114,17 +127,6 @@ async function renderUser(){
       }
 
     }
-
-
-    tagDesc.append(tagEmail, tagProf, tagKind)
-
-    tagUserid.append(tagName, tagDesc)
-
-    tagmain.append(tagUserid, tagbtm)
-
-    localReder.appendChild(tagmain)
-
-
 }
 
 function cardFriend (element){
@@ -214,11 +216,11 @@ async function openModalEdit(){
                 editUser[name] = value
             }
         })
-        evt.path[2].remove()
+        
         await updateUserProfile(editUser)
         header.innerHTML = ""
-        main.innerHTML = ""
         await renderUser()
+        evt.path[2].remove()
         
     })
 
@@ -229,3 +231,4 @@ async function openModalEdit(){
 }
 
 renderUser()
+renderCompany()

@@ -157,3 +157,7 @@ form{
     font-weight: var(--font-w-1);
     cursor: pointer;
 }
+
+main{
+    height: 100vh;
+}
